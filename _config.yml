@@ -6,7 +6,7 @@ gems:
   - jekyll-seo-tag
 
 title:  React Jsx Templating | inspired by Angular :)
-description : `React Jsx Templating` will give you templating syntax like Angular `*ngIf`
+description : React Jsx Templating will give you templating syntax like Angular *ngIf
 author : Ritwick Dey
 twitter:username: Dey_Ritwick
 social:
