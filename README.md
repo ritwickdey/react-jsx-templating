@@ -71,7 +71,8 @@ class EnglishNewsPaper extends Component  {
   }
 }
 
-export default withTemplating(EnglishNewsPaper); // same thing need to be done in `SpanishNewsPaper` component. I'm not repeating, but you got the point.
+export default withTemplating(EnglishNewsPaper); 
+// same thing is need to be done in `SpanishNewsPaper` component. I'm not repeating, but you got the point.
 
 ```
 

@@ -1,7 +1,7 @@
 {
   "name": "react-jsx-templating",
-  "version": "1.0.0",
-  "description": "React Templating, inspired by Angular :)",
+  "version": "0.0.1",
+  "description": "React Jsx Templating, inspired by Angular :)",
   "author": "ritwickdey",
   "license": "MIT",
   "repository": "ritwickdey/react-jsx-templating",
