@@ -6,6 +6,8 @@
 
 `React Jsx Templating` will give you templating syntax like Angular `*ngIf`
 
+***Live Example:  https://codesandbox.io/s/j312l1m2x9***
+
 ## Install
 
 ```bash
@@ -13,8 +15,6 @@ npm install --save react-jsx-templating
 ```
 
 ## Usage
-
-***Live Example:  https://codesandbox.io/s/j312l1m2x9***
 
 - **If-Else Templating**
 
