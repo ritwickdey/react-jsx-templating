@@ -5,7 +5,7 @@ repository: ritwickdey/react-jsx-templating
 gems:
   - jekyll-seo-tag
 
-title:  React Jsx Templating | inspired by Angular :)
+title:  React Jsx Templating
 description : React Jsx Templating will give you templating syntax like Angular *ngIf
 author : Ritwick Dey
 twitter:username: Dey_Ritwick
