@@ -14,6 +14,8 @@ npm install --save react-jsx-templating
 
 ## Usage
 
+***Live Example:  https://codesandbox.io/s/j312l1m2x9***
+
 - **If-Else Templating**
 
 ```jsx
@@ -63,7 +65,7 @@ class Example extends Component {
 ```jsx
 
 // in ./EnglishNewsPaper.js
-import { withTemplating } from 'react-jsx-templating';
+import withTemplating from 'react-jsx-templating'; //Notice, it's default import
 
 class EnglishNewsPaper extends Component  {
   render() {
