@@ -18,31 +18,41 @@ npm install --save react-jsx-templating
 
 ```jsx
 import React, { Component } from 'react';
-import { Div, P } from 'react-jsx-templating';
+import { Div, P, Button, Br } from 'react-jsx-templating';
 import EnglishNewsPaper from './EnglishNewsPaper';
 import SpanishNewsPaper from './SpanishNewsPaper';
 
 class Example extends Component {
   state = {
-    isEngLang: true
+    isEngLang: true,
+    hideToggler: false
   };
+
+  toogle = stateKey => () => {
+    this.setState(oldState => ({[stateKey]: !oldState[stateKey]}))
+  }
+
   render() {
-    const { isEngLang } = this.state;
-    return (
+    const { isEngLang, hideToggler } = this.state;
+    return ( 
       <Div>
-        <P 
-          $if={isEngLang} 
-          $else={() => <P>Hola!</P>}
-        >
+        <P $if={isEngLang} $else={() => <P>Hola!</P>}> {/* OR, $else={<P>Hola!</P>} */}
           Hello!
         </P>
+      
+        <EnglishNewsPaper $if={isEngLang} $else={SpanishNewsPaper} />  {/* NOTE, $else={Component} */}
+      
+        <Button $if={!hideToggler} onClick={this.toogle('isEngLang')}>
+          Toggle Language
+        </Button>
+
+        <Br $if={!hideToggler} />
+        <Br $if={!hideToggler}/>
         
-        <Div>
-          <EnglishNewsPaper 
-            $if={isEngLang} 
-            $else={SpanishNewsPaper} 
-          />
-        </Div>
+        <Button onClick={this.toogle('hideToggler')}>
+          <Span $if={hideToggler}>Show Toggler</Span>
+          <Span $if={!hideToggler}>Hide Toggler</Span>
+        </Button>
       </Div>
     );
   }
