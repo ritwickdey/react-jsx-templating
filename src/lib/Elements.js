@@ -5,7 +5,10 @@ import withTemplating from './withTemplating';
 export const Elements = {};
 
 HTML_TAGS.forEach(tag => {
-  const Fn = props => React.createElement(tag, props);
+  const Fn = props => {
+    const { $if, $else, $switch, $case, ...restProps } = props;
+    return React.createElement(tag, restProps);
+  };
   const Tag = capitalCase(tag);
   Fn.displayName = Tag;
   Elements[Tag] = withTemplating(Fn);
