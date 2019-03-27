@@ -20,15 +20,15 @@ const withTemplating = Component => {
 };
 
 function doIfElseOperation(props, Component) {
-  const { $if, $else, ...restProps } = props;
+  const { $if, $else } = props;
 
   if (isTrusy($if)) {
-    return React.createElement(Component, restProps);
+    return React.createElement(Component, props);
   }
 
   if (!$if) {
     if (typeof $else === 'function') {
-      return React.createElement($else, restProps);
+      return React.createElement($else, props);
     }
 
     return $else || null;
@@ -42,7 +42,7 @@ function doSwitchCaseOperation(props, Component) {
   const totalNoOfNode = React.Children.count(children);
 
   for (let i = 0; i < totalNoOfNode; i++) {
-    const child = children[i];
+    const child = totalNoOfNode === 1 ? children : children[i];
     const { $case, $default } = child.props;
 
     if (isUndefined($case) && isUndefined($default)) {
@@ -54,9 +54,12 @@ function doSwitchCaseOperation(props, Component) {
     }
   }
 
-  if (!targetChildNode) return null;
+  if (targetChildNode) {
+    const { $case, $default, ...childProps } = targetChildNode.props;
+    targetChildNode = React.cloneElement(targetChildNode, childProps);
+  }
 
-  return React.createElement(Component, props, [targetChildNode]);
+  return React.createElement(Component, props, targetChildNode);
 }
 
 // Utils Function
