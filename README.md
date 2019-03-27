@@ -2,7 +2,8 @@
 
 > React Jsx Templating is a simple library, inspired by Angular :)
 
-[![NPM](https://img.shields.io/npm/v/react-jsx-templating.svg)](https://www.npmjs.com/package/react-jsx-templating) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-jsx-templating.svg)](https://www.npmjs.com/package/react-jsx-templating) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Build Status](https://travis-ci.com/ritwickdey/react-jsx-templating.svg?branch=master)](https://travis-ci.com/ritwickdey/react-jsx-templating)
+
 
 `React Jsx Templating` will give you templating syntax like Angular `*ngIf`
 
