@@ -50,6 +50,7 @@ import { Div, P, Button, Br, Span } from 'react-jsx-templating'; // Note: named 
 +     <div $case={'a'}>A</div>
 +     <div $case={'b'}>B</div>
 +     <div $case={'c'}>C</div>
++     <div $default>No Match</div>
 +   </Div>
 ```
 
