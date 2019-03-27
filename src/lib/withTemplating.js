@@ -2,16 +2,15 @@ import React from 'react';
 
 const withTemplating = Component => {
   const Templating = props => {
-    const { $if, $else, ...otherProps } = props;
+    const { $if, $else, ...restProps } = props;
 
     if (typeof $if === 'undefined' || $if) {
-      return <Component {...otherProps} />;
+      return React.createElement(Component, restProps)
     }
 
     if (!$if) {
       if (typeof $else === 'function') {
-        const Else = $else;
-        return <Else {...otherProps} />;
+        return React.createElement($else, restProps);
       }
 
       return $else || null;
