@@ -6,7 +6,7 @@
 
 `React Jsx Templating` will give you templating syntax like Angular `*ngIf`
 
-**_Live Example: https://codesandbox.io/s/j312l1m2x9_**
+***Live Example: [Open in Codesandbox](https://codesandbox.io/s/j312l1m2x9)***
 
 ## Install
 

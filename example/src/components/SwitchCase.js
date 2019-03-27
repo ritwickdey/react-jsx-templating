@@ -10,11 +10,13 @@ function SwitchCase() {
         value={animal}
         onChange={e => setAnimal(e.target.value)}
       />
+        <br />
+        <br />
       <Div $if={animal} $else={() => <div>Please type!! </div>}>
-        <Div $switch={animal}>
+        <Div $switch={animal.trim().toLowerCase()}>
           <div $case={'dog'}>woof-woof 🐕</div>
           <div $case={'cat'}>meows meows 🐈</div>
-          <div $default>Ops!! No Match! </div>
+          <div $default>Ops!! No Match with `{`${animal}`} ` </div>
         </Div>
       </Div>
     </div>

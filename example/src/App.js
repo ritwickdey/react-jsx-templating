@@ -6,12 +6,12 @@ function App() {
   return (
     <div>
       <section>
-        <header>If else</header>
+        <h2>If-Else Example</h2>
         <IfElse />
       </section>
 
       <section>
-        <header>Switch Case</header>
+        <h2>Switch-Case Example</h2>
         <SwitchCase />
       </section>
     </div>
