@@ -39,7 +39,7 @@ import { Div, P, Button, Br, Span } from 'react-jsx-templating'; // Note: named 
 
 - If-else
 
-```diff jsx
+```diff
 + <EnglishNewsPaper $if={condition} $else={SpanishNewsPaper} />
 ```
 
