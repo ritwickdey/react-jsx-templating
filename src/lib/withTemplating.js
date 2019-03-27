@@ -43,6 +43,8 @@ function doSwitchCaseOperation(props, Component) {
 
   for (let i = 0; i < totalNoOfNode; i++) {
     const child = totalNoOfNode === 1 ? children : children[i];
+    if(!React.isValidElement(child)) continue;
+
     const { $case, $default } = child.props;
 
     if (isUndefined($case) && isUndefined($default)) {

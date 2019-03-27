@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Div } from 'react-jsx-templating';
 
 function SwitchCase() {
-  const test = 'c';
+  const [animal, setAnimal] = useState('');
   return (
     <div className="App">
-      <Div $switch={test}>
-        <div $case={'a'}>A</div>
-        <div $case={'b'}>B</div>
-        <Div $case={'c'}>C</Div>
-        <div $case={'d'}>D</div>
-        <div $default>Default</div>
+      <input
+        placeholder={'type `dog` or `cat`'}
+        value={animal}
+        onChange={e => setAnimal(e.target.value)}
+      />
+      <Div $if={animal} $else={() => <div>Please type!! </div>}>
+        <Div $switch={animal}>
+          <div $case={'dog'}>woof-woof 🐕</div>
+          <div $case={'cat'}>meows meows 🐈</div>
+          <div $default>Ops!! No Match! </div>
+        </Div>
       </Div>
     </div>
   );
