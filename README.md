@@ -6,7 +6,7 @@
 
 `React Jsx Templating` will give you templating syntax like Angular `*ngIf`
 
-***Live Example:  https://codesandbox.io/s/j312l1m2x9***
+**_Live Example: https://codesandbox.io/s/j312l1m2x9_**
 
 ## Install
 
@@ -16,72 +16,109 @@ npm install --save react-jsx-templating
 
 ## Usage
 
-- **If-Else Templating**
+- **Use HOC**
+
+```jsx
+import withTemplating from 'react-jsx-templating'; //Note: default import
+class MyComponent extends Component  {
+  render()
+    return "foo";
+  }
+}
+
+export default withTemplating(MyComponent);
+```
+
+- Use Wrapper HTML tags
+
+```jsx
+import { Div, P, Button, Br, Span } from 'react-jsx-templating'; // Note: named import. There are total 118 Elements
+```
+
+## Syntax
+
+- If-else
+
+```diff jsx
++ <EnglishNewsPaper $if={condition} $else={SpanishNewsPaper} />
+```
+
+- switch-case
+
+```diff
++   <Div $switch={testValue}>
++     <div $case={'a'}>A</div>
++     <div $case={'b'}>B</div>
++     <div $case={'c'}>C</div>
++   </Div>
+```
+
+## Examples
+
+- **Switch-Case Templating**
+
+```jsx
+import React, { useState } from 'react';
+import { Div } from 'react-jsx-templating';
+
+function ExampleSwitchCase() {
+  const [animal, setAnimal] = useState('');
+  return (
+    <div className="App">
+      <input
+        placeholder={'type `dog` or `cat`'}
+        value={animal}
+        onChange={e => setAnimal(e.target.value)}
+      />
+      <Div $if={animal} $else={() => <div>Please type!! </div>}>
+        <Div $switch={animal}>
+          <div $case={'dog'}>woof-woof 🐕</div>
+          <div $case={'cat'}>meows meows 🐈</div>
+          <div $default>Ops!! No Match! </div>
+        </Div>
+      </Div>
+    </div>
+  );
+}
+
+```
+
+
+* **If-Else Templating**
 
 ```jsx
 import React, { Component } from 'react';
 import { Div, P, Button, Br } from 'react-jsx-templating';
-import EnglishNewsPaper from './EnglishNewsPaper';
-import SpanishNewsPaper from './SpanishNewsPaper';
+import { EnglishNewsPaper, SpanishNewsPaper } from './Components';
 
-class Example extends Component {
+class ExampleIfElse extends Component {
   state = {
-    isEngLang: true,
-    hideToggler: false
+    isEngLang: true
   };
 
-  toogle = stateKey => () => {
-    this.setState(oldState => ({[stateKey]: !oldState[stateKey]}))
-  }
+  toogleLanguage = () => {
+    this.setState(oldState => ({ isEngLang: !oldState.isEngLang }));
+  };
 
   render() {
-    const { isEngLang, hideToggler } = this.state;
-    return ( 
-      <Div>
-        <P $if={isEngLang} $else={() => <P>Hola!</P>}> {/* OR, $else={<P>Hola!</P>} */}
+    const { isEngLang } = this.state;
+    return (
+      <div>
+        <P $if={isEngLang} $else={<p>Hola!</p>}>
           Hello!
         </P>
-      
-        <EnglishNewsPaper $if={isEngLang} $else={SpanishNewsPaper} />  {/* NOTE, $else={Component} */}
-      
-        <Button $if={!hideToggler} onClick={this.toogle('isEngLang')}>
-          Toggle Language
-        </Button>
-
-        <Br $if={!hideToggler} />
-        <Br $if={!hideToggler}/>
-        
-        <Button onClick={this.toogle('hideToggler')}>
-          <Span $if={hideToggler}>Show Toggler</Span>
-          <Span $if={!hideToggler}>Hide Toggler</Span>
-        </Button>
-      </Div>
+        <EnglishNewsPaper $if={isEngLang} $else={SpanishNewsPaper} />
+        <Button onClick={this.toogleLanguage}>Toggle Language</Button>
+      </div>
     );
   }
 }
-
 ```
-
-```jsx
-
-// in ./EnglishNewsPaper.js
-import withTemplating from 'react-jsx-templating'; //Notice, it's default import
-
-class EnglishNewsPaper extends Component  {
-  render() {
-    return "English News";
-  }
-}
-
-export default withTemplating(EnglishNewsPaper); 
-// same thing is need to be done in `SpanishNewsPaper` component. I'm not repeating, but you got the point.
-
-```
-
 
 ## What's next ?
 
-- Switch Case
+- ~~Switch Case~~ (added)
+- Loop
 
 ## License
 
