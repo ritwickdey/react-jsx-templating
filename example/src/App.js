@@ -5,8 +5,15 @@ import SwitchCase from './components/SwitchCase';
 function App() {
   return (
     <div>
-      {/* <IfElse /> */}
-      <SwitchCase />
+      <section>
+        <header>If else</header>
+        <IfElse />
+      </section>
+
+      <section>
+        <header>Switch Case</header>
+        <SwitchCase />
+      </section>
     </div>
   );
 }
