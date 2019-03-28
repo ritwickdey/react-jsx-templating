@@ -2,7 +2,7 @@ import React from 'react';
 
 const withTemplating = Component => {
   const Templating = props => {
-    const { $if, $switch } = props;
+    const { $if, $switch, ...restProps } = props;
 
     if (!isUndefined($if)) {
       return doIfElseOperation(props, Component);
@@ -12,7 +12,7 @@ const withTemplating = Component => {
       return doSwitchCaseOperation(props, Component);
     }
 
-    return React.createElement(Component, props);
+    return React.createElement(Component, restProps);
   };
 
   Templating.displayName = `withTemplating(${Component.displayName || Component.name})`;
@@ -20,15 +20,15 @@ const withTemplating = Component => {
 };
 
 function doIfElseOperation(props, Component) {
-  const { $if, $else } = props;
+  const { $if, $else, ...restProps } = props;
 
   if (isTrusy($if)) {
-    return React.createElement(Component, props);
+    return React.createElement(Component, restProps);
   }
 
   if (!$if) {
     if (typeof $else === 'function') {
-      return React.createElement($else, props);
+      return React.createElement($else, restProps);
     }
 
     return $else || null;
@@ -36,8 +36,8 @@ function doIfElseOperation(props, Component) {
 }
 
 function doSwitchCaseOperation(props, Component) {
-  const { children } = props;
-  const switchValue = props.$switch;
+  const { $switch, children, ...restProps } = props;
+  const switchValue = $switch;
   let targetChildNode = null;
   const totalNoOfNode = React.Children.count(children);
 
@@ -61,7 +61,7 @@ function doSwitchCaseOperation(props, Component) {
     targetChildNode = React.cloneElement(targetChildNode, childProps);
   }
 
-  return React.createElement(Component, props, targetChildNode);
+  return React.createElement(Component, restProps, targetChildNode);
 }
 
 // Utils Function
