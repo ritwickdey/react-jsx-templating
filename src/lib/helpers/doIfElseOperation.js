@@ -8,10 +8,8 @@ export function doIfElseOperation(props, Component) {
     return React.createElement(Component, restProps);
   }
 
-  if (!condition) {
-    if (typeof elseBlock === 'function') {
-      return React.createElement(elseBlock, restProps);
-    }
-    return elseBlock || null;
+  if (typeof elseBlock === 'function') {
+    return React.createElement(elseBlock, restProps);
   }
+  return elseBlock || null;
 }
