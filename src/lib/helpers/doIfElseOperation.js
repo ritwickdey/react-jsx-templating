@@ -2,16 +2,16 @@ import React from 'react';
 import { isTrusy } from './utils';
 
 export function doIfElseOperation(props, Component) {
-  const { $if, $else, ...restProps } = props;
+  const { $if: condition, $else: elseBlock, ...restProps } = props;
 
-  if (isTrusy($if)) {
+  if (isTrusy(condition)) {
     return React.createElement(Component, restProps);
   }
 
-  if (!$if) {
-    if (typeof $else === 'function') {
-      return React.createElement($else, restProps);
+  if (!condition) {
+    if (typeof elseBlock === 'function') {
+      return React.createElement(elseBlock, restProps);
     }
-    return $else || null;
+    return elseBlock || null;
   }
 }

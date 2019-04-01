@@ -2,8 +2,8 @@ import React from 'react';
 import { isTrusy, isUndefined } from './utils';
 
 export function doSwitchCaseOperation(props, Component) {
-  const { $switch, children, ...restProps } = props;
-  const switchValue = $switch;
+  const { $switch: switchValue, children, ...restProps } = props;
+
   let targetChildNode = null;
 
   const totalNoOfNode = React.Children.count(children);
@@ -12,13 +12,13 @@ export function doSwitchCaseOperation(props, Component) {
 
     if (!React.isValidElement(child)) continue;
 
-    const { $case, $default } = child.props;
+    const { $case: caseValue, $default: defaultValue } = child.props;
 
-    if (isUndefined($case) && isUndefined($default)) {
+    if (isUndefined(caseValue) && isUndefined(defaultValue)) {
       throw new Error('$case or $default is missing', child);
     }
 
-    if (isTrusy($default) || $case === switchValue) {
+    if (isTrusy(defaultValue) || caseValue === switchValue) {
       targetChildNode = child;
       break;
     }
