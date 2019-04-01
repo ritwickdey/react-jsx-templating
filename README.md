@@ -40,12 +40,14 @@ import { Div, P, Button, Br, Span } from 'react-jsx-templating'; // Note: named 
 - If-else
 
 ```diff
-+ <EnglishNewsPaper $if={condition} $else={SpanishNewsPaper} />
+  let isEnglish = false;
++ <EnglishNewsPaper $if={isEnglish} $else={SpanishNewsPaper} />
 ```
 
 - switch-case
 
 ```diff
+    let testValue = 'c';
 +   <Div $switch={testValue}>
 +     <div $case={'a'}>A</div>
 +     <div $case={'b'}>B</div>
@@ -57,6 +59,7 @@ import { Div, P, Button, Br, Span } from 'react-jsx-templating'; // Note: named 
 - for-loop
 
 ```diff
+    let people = [{id: 1, name:'Ritwick'}, {id:2, name:'Akash'}]
 +    <Div $for={people} $key={person => person.id}>
 +      {person => <div>{person.name}<div>}
 +    </Div>
