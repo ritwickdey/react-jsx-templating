@@ -4,10 +4,9 @@
 
 [![NPM](https://img.shields.io/npm/v/react-jsx-templating.svg)](https://www.npmjs.com/package/react-jsx-templating) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Build Status](https://travis-ci.com/ritwickdey/react-jsx-templating.svg?branch=master)](https://travis-ci.com/ritwickdey/react-jsx-templating)
 
-
 `React Jsx Templating` will give you templating syntax like Angular `*ngIf`
 
-***Live Example: [Open in Codesandbox](https://codesandbox.io/s/j312l1m2x9)***
+**_Live Example: [Open in Codesandbox](https://codesandbox.io/s/j312l1m2x9)_**
 
 ## Install
 
@@ -82,11 +81,9 @@ function ExampleSwitchCase() {
     </div>
   );
 }
-
 ```
 
-
-* **If-Else Templating**
+- **If-Else Templating**
 
 ```jsx
 import React, { Component } from 'react';
@@ -117,10 +114,26 @@ class ExampleIfElse extends Component {
 }
 ```
 
+- **For Loop**
+
+```jsx
+import React from 'react';
+import { Div } from 'react-jsx-templating';
+import { Article } from './Components';
+
+function ExampleForLoop() {
+  return (
+    <Div $for={Articles} $key={({ id }) => id}>
+      {article => <Article article={article} />}
+    </Div>
+  );
+}
+```
+
 ## What's next ?
 
 - ~~Switch Case~~ (added)
-- Loop
+- ~~Loop~~ (added)
 
 ## License
 
