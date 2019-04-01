@@ -54,6 +54,14 @@ import { Div, P, Button, Br, Span } from 'react-jsx-templating'; // Note: named 
 +   </Div>
 ```
 
+- for-loop
+
+```diff
++    <Div $for={people} $key={person => person.id}>
++      {person => <div>{person.name}<div>}
++    </Div>
+```
+
 ## Examples
 
 - **Switch-Case Templating**
