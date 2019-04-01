@@ -20,15 +20,20 @@ const Articles = [
   }
 ];
 
+function Article(props) {
+  const { article } = props;
+  return (
+    <div>
+      <header style={{ fontWeight: 'bold' }}>{article.head}</header>
+      <p style={{ marginTop: 0 }}>{article.body}</p>
+    </div>
+  );
+}
+
 function ForLoop() {
   return (
     <Div $for={Articles} $key={article => article.id}>
-      {article => (
-        <div>
-          <header>{article.head}</header>
-          <p>{article.body}</p>
-        </div>
-      )}
+      {article => <Article article={article} />}
     </Div>
   );
 }
