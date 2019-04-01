@@ -6,7 +6,7 @@ export const Elements = {};
 
 HTML_TAGS.forEach(tag => {
   const Fn = props => {
-    const { $if, $switch, $case, $default, $else, ...rest } = props;
+    const { $if, $switch, $case, $default, $else, $key, $for, ...rest } = props;
     return React.createElement(tag, rest);
   };
   const Tag = capitalCase(tag);
