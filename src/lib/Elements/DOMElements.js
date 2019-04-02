@@ -1,8 +1,8 @@
 import React from 'react';
-import { HTML_TAGS } from './html-tags';
-import withTemplating from './withTemplating';
+import { HTML_TAGS } from '../utils/html-tags';
+import withTemplating from '../withTemplating';
 
-export const Elements = {};
+const DOMElements = {};
 
 HTML_TAGS.forEach(tag => {
   const Fn = props => {
@@ -11,11 +11,11 @@ HTML_TAGS.forEach(tag => {
   };
   const Tag = capitalCase(tag);
   Fn.displayName = Tag;
-  Elements[Tag] = withTemplating(Fn);
+  DOMElements[Tag] = withTemplating(Fn);
 });
 
 function capitalCase(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-export default { ...Elements };
+export default DOMElements;

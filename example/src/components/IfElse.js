@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Div, P, Button, Br, Span } from 'react-jsx-templating';
+import { Div, P, Button, Br, Fragment } from 'react-jsx-templating';
 import MySomeComponent from './Helper/MySomeComponent';
 
 function IfElse() {
@@ -15,9 +15,9 @@ function IfElse() {
         Welcome here
       </MySomeComponent>
       <Button onClick={() => setShowToggler(v => !v)}>
-        <Span $if={!showToggler} $else={<Span>Hide Toggler</Span>}>
+        <Fragment $if={!showToggler} $else={<>Hide Toggler</>}>
           Show Toggler
-        </Span>
+        </Fragment>
       </Button>
       <Br $if={showToggler} />
       <Button $if={showToggler} onClick={() => setShow(v => !v)}>

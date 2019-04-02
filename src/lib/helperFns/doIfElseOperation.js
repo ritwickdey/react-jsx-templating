@@ -1,5 +1,5 @@
 import React from 'react';
-import { isTrusy } from './utils';
+import { isTrusy } from '../utils';
 
 export function doIfElseOperation(props, Component) {
   const { $if: condition, $else: elseBlock, ...restProps } = props;

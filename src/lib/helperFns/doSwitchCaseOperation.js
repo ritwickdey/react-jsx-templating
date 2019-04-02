@@ -1,5 +1,5 @@
 import React from 'react';
-import { isTrusy, isUndefined } from './utils';
+import { isTrusy, isUndefined } from '../utils';
 
 export function doSwitchCaseOperation(props, Component) {
   const { $switch: switchValue, children, ...restProps } = props;

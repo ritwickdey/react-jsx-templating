@@ -32,7 +32,8 @@ export default withTemplating(MyComponent);
 - Use Wrapper HTML tags
 
 ```jsx
-import { Div, P, Button, Br, Span } from 'react-jsx-templating'; // Note: named import. There are total 118 Elements
+// Note: named import. There are total 118 Elements
+import { Fragment, Div, P, Button, Br, Span } from 'react-jsx-templating';
 ```
 
 ## Syntax
@@ -98,7 +99,7 @@ function ExampleSwitchCase() {
 
 ```jsx
 import React, { Component } from 'react';
-import { Div, P, Button, Br } from 'react-jsx-templating';
+import { Div, Fragment, Button, Br } from 'react-jsx-templating';
 import { EnglishNewsPaper, SpanishNewsPaper } from './Components';
 
 class ExampleIfElse extends Component {
@@ -114,9 +115,9 @@ class ExampleIfElse extends Component {
     const { isEngLang } = this.state;
     return (
       <div>
-        <P $if={isEngLang} $else={<p>Hola!</p>}>
+        <Fragment $if={isEngLang} $else={<>Hola!</>}>
           Hello!
-        </P>
+        </Fragment>
         <EnglishNewsPaper $if={isEngLang} $else={SpanishNewsPaper} />
         <Button onClick={this.toogleLanguage}>Toggle Language</Button>
       </div>
@@ -145,6 +146,7 @@ function ExampleForLoop() {
 
 - ~~Switch Case~~ (added)
 - ~~Loop~~ (added)
+- ~~Fragment~~ (added)
 
 ## License
 

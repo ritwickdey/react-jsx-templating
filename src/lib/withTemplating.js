@@ -1,8 +1,6 @@
 import React from 'react';
-import { doIfElseOperation } from './helpers/doIfElseOperation';
-import { doSwitchCaseOperation } from './helpers/doSwitchCaseOperation';
-import { isUndefined } from './helpers/utils';
-import { doForLoopOperation } from './helpers/doForLoopOperation';
+import { isUndefined } from './utils';
+import { doIfElseOperation, doForLoopOperation, doSwitchCaseOperation } from './helperFns';
 
 const withTemplating = Component => {
   const Templating = props => {
